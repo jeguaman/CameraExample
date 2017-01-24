@@ -174,6 +174,11 @@ public class MainActivity extends AppCompatActivity {
         */
     }
 
+    /*
+    trae las métricas de la imágen para escalar en múltiplos de 2
+    traer de otra dimensión
+
+     */
     private Bitmap decodeUri(Uri selectedImage) throws FileNotFoundException {
         // Decode imageView size
         BitmapFactory.Options o = new BitmapFactory.Options();
@@ -279,6 +284,9 @@ public class MainActivity extends AppCompatActivity {
         String imageFileName = Constants.NAME_IMAGE + timeStamp + "_";
         File storageDir = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES);
+        if(!storageDir.exists()){
+            storageDir.mkdirs();
+        }
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
